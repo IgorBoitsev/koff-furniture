@@ -7,7 +7,9 @@
     <title>Koff Furniture</title>
 
     <link rel="stylesheet" href="./style.scss">
-
+    <link rel="preload" href="/public/fonts/inter-v13-cyrillic_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/public/fonts/open-sans-v36-cyrillic_latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/public/fonts/open-sans-v36-cyrillic_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
     <script src="./main.js" type="module"></script>
 
   </head>
@@ -25,8 +27,8 @@
 
           <button class="header__btn" type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M7.66671 13.9999C11.1645 13.9999 14 11.1644 14 7.66659C14 4.16878 11.1645 1.33325 7.66671 1.33325C4.1689 1.33325 1.33337 4.16878 1.33337 7.66659C1.33337 11.1644 4.1689 13.9999 7.66671 13.9999Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M14.6667 14.6666L13.3334 13.3333" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7.66671 13.9999C11.1645 13.9999 14 11.1644 14 7.66659C14 4.16878 11.1645 1.33325 7.66671 1.33325C4.1689 1.33325 1.33337 4.16878 1.33337 7.66659C1.33337 11.1644 4.1689 13.9999 7.66671 13.9999Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14.6667 14.6666L13.3334 13.3333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
         </form>
@@ -99,30 +101,30 @@
           </ul>
           <!-- /.catalog__list -->
 
-          <div class="breadcrumbs">
-            <div class="container">
-              <ul class="breadcrumbs__list">
-                <li class="breadcrumbs__item">
-                  <a href="/" class="breadcrumbs__link">Главная</a>
-                  <span class="breadcrumbs__separator">&gt;</span>
-                </li>
-                <li class="breadcrumbs__item">
-                  <a href="/category?slug=Кресла" class="breadcrumbs__link">Кресла</a>
-                  <span class="breadcrumbs__separator">&gt;</span>
-                </li>
-                <li class="breadcrumbs__item">
-                  <a href="/category?slug=Кресло с подлокотниками" class="breadcrumbs__link">Кресло с подлокотниками</a>
-                  <span class="breadcrumbs__separator">&gt;</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- /.breadcrumbs -->
-
         </div>
         <!-- /.container -->
       </div>
       <!-- /.catalog -->
+
+      <div class="breadcrumbs">
+        <div class="container breadcrumbs__container">
+          <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+              <a href="/" class="breadcrumbs__link">Главная</a>
+              <span class="breadcrumbs__separator">&gt;</span>
+            </li>
+            <li class="breadcrumbs__item">
+              <a href="/category?slug=Кресла" class="breadcrumbs__link">Кресла</a>
+              <span class="breadcrumbs__separator">&gt;</span>
+            </li>
+            <li class="breadcrumbs__item">
+              <a href="/category?slug=Кресло с подлокотниками" class="breadcrumbs__link">Кресло с подлокотниками</a>
+              <span class="breadcrumbs__separator">&gt;</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /.breadcrumbs -->
 
       <section class="goods">
         <div class="container goods__container">
@@ -450,28 +452,28 @@
               <h2 class="order__title">Данные доставки</h2>
               <table class="order__info table">
                 <tr>
-                  <td class="table-field">Получатель</td>
-                  <td class="table-value">Иванов Петр Александрович</td>
+                  <td class="table__field">Получатель</td>
+                  <td class="table__value">Иванов Петр Александрович</td>
                 </tr>
                 <tr>
-                  <td class="table-field">Телефон</td>
-                  <td class="table-value">+7 (737) 346 23 00</td>
+                  <td class="table__field">Телефон</td>
+                  <td class="table__value">+7 (737) 346 23 00</td>
                 </tr>
                 <tr>
-                  <td class="table-field">E-mail</td>
-                  <td class="table-value">Ivanov84@gmail.com</td>
+                  <td class="table__field">E-mail</td>
+                  <td class="table__value">Ivanov84@gmail.com</td>
                 </tr>
                 <tr>
-                  <td class="table-field">Адрес доставки</td>
-                  <td class="table-value">Москва, ул. Ленина, 21, кв. 33</td>
+                  <td class="table__field">Адрес доставки</td>
+                  <td class="table__value">Москва, ул. Ленина, 21, кв. 33</td>
                 </tr>
                 <tr>
-                  <td class="table-field">Способ оплаты</td>
-                  <td class="table-value">Картой при получении</td>
+                  <td class="table__field">Способ оплаты</td>
+                  <td class="table__value">Картой при получении</td>
                 </tr>
                 <tr>
-                  <td class="table-field">Способ получения</td>
-                  <td class="table-value">Доставка</td>
+                  <td class="table__field">Способ получения</td>
+                  <td class="table__value">Доставка</td>
                 </tr>
               </table>
 
