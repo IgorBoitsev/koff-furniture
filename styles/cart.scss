@@ -1,59 +1,232 @@
 .cart {
+  padding-top: 24px;
+
+  @media (min-width: 580px) {
+    padding-top: 32px;
+  }
+
+  @media (min-width: 820px) {
+    padding-top: 40px;
+  }
 
   &__container {
+    display: grid;
+    grid-template-areas:
+    'title'
+    'products'
+    'delivery'
+    'placing';
+
+    @media (min-width: 820px) {
+      grid-template-areas:
+      'title title'
+      'products placing'
+      'delivery delivery';
+      grid-template-columns: 514px 302px;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 1120px) {
+      grid-template-columns: 514px 408px;
+    }
   }
 
   &__title {
+    grid-area: title;
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 700;
+    
+    @media (min-width: 580px) {
+      font-size: 32px;
+    }
+    @media (min-width: 820px) {
+      margin-bottom: 40px;
+    }
   }
 
   &__products {
+    grid-area: products;
+    margin-bottom: 49px;
+
+    @media (min-width: 580px) {
+      margin-bottom: 65px;
+    }
+  
+    @media (min-width: 820px) {
+      margin-bottom: 81px;
+    }
   }
 
   &__product {
+    display: grid;
+    grid-template-areas:
+    'image title title'
+    'image article article'
+    'image controls price';
+    grid-template-columns: 80px 64px auto;
+    column-gap: 8px;
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 580px) {
+      grid-template-areas:
+      'image title price'
+      'image article article'
+      'image controls controls';
+      grid-template-columns: 122px 2fr 1fr;
+      column-gap: 12px;
+    }
   }
 
   &__image {
+    grid-area: image;
+    border-radius: 16px;
   }
 
   &__title-product {
+    grid-area: title;
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 400;
+
+    @media (min-width: 580px) {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
   }
 
   &__price {
+    grid-area: price;
+    font-size: 12px;
+    font-weight: 400;
+    align-self: center;
+
+    @media (min-width: 580px) {
+      text-align: right;
+      font-size: 16px;
+    }
   }
 
   &__article {
+    grid-area: article;
+    margin-bottom: 13px;
+    color: #969EAE;
+    font-size: 9px;
+    font-weight: 400;
+
+    @media (min-width: 580px) {
+      font-size: 12px;
+      margin-bottom: 24px;
+    }
   }
 
   &__product-control {
+    grid-area: controls;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 5px 11px;
+    border-radius: 32px;
+    border: 1px solid #EEEFF2;
+
+    @media (min-width: 580px) {
+      max-width: 64px;
+    }
   }
 
   &__product-btn {
+    font-size: 12px;
+    font-weight: 400;
   }
 
-  &__product-count {
-  }
+  // &__product-count {
+  // }
 
   &__placing {
+    grid-area: placing;
+    width: 100%;
   }
 
   &__subtitle {
+    // width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 16px;
+        
+    @media (min-width: 580px) {
+      font-size: 20px;
+    }
   }
 
   &__placing-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    
+    @media (min-width: 580px) {
+      margin-bottom: 40px;
+    }
   }
 
   &__placing-count {
+    font-size: 12px;
+    font-weight: 400;
+
+    @media (min-width: 580px) {
+      font-size: 16px;
+    }
   }
 
   &__placing-price {
+    font-size: 12px;
+    font-weight: 400;
+
+    @media (min-width: 580px) {
+      font-size: 16px;
+    }
   }
 
   &__placing-delivery {
+    color: #969EAE;
+    font-size: 9px;
+    font-weight: 400;
+    margin-bottom: 8px;
+
+    @media (min-width: 580px) {
+      margin-bottom: 12px;
+      font-size: 12px;
+    }
   }
 
   &__placing-btn {
+    padding: 12px 24px;
+    width: 100%;
+    border-radius: 32px;
+    border: 1px solid #780096;
+    background-color: #780096;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
   }
 
   &__delivery-form {
+    grid-area: delivery;
+    margin-bottom: 50px;
+    
+    @media (min-width: 580px) {
+      margin-bottom: 66px;
+    }
+    
+    @media (min-width: 820px) {
+      margin-bottom: 0px;
+    }
   }
 }

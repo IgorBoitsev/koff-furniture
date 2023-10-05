@@ -1,31 +1,103 @@
 .order {
+  padding-top: 32px;
+
+  @media (min-width: 580px) {
+    padding: 60px 0px 0px;
+  }
+
+  @media (min-width: 820px) {
+    padding: 60px 0px 0px;
+  }
+
+  @media (min-width: 1120px) {
+    padding: 60px 0px 0px;
+  }
 
   &__layout {
+    padding: 24px 16px;
+    border-radius: 16px;
+    border: 1px solid #EEEFF2;
+    margin: 0 auto;
+
+    @media (min-width: 580px) {
+      padding: 60px 151px;
+      max-width: 710px;
+    }
+  
+    @media (min-width: 820px) {
+      padding: 60px 159px;
+      max-width: 726px;
+    }
+  
+    @media (min-width: 1120px) {
+      padding: 60px 212px;
+      max-width: 832px;
+    }
   }
 
   &__content {
+
+    @media (min-width: 580px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
   &__title {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    
+    @media (min-width: 580px) {
+      font-size: 20px;
+      margin-bottom: 12px;
+      width: 70%;
+    }
   }
 
   &__price {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    
+    @media (min-width: 580px) {
+      font-size: 20px;
+      width: 30%;
+      text-align: right;
+    }
   }
 
   &__number {
+    padding: 4px 8px;
+    border-radius: 32px;
+    background: #EEEFF2;
+    display: inline-block;
+    margin-bottom: 20px;
+    
+    @media (min-width: 580px) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__subtitle {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 12px;
   }
 
   &__info {
+    margin-bottom: 24px;
   }
 
   &__btn {
-  }
-}
-.table {
-
-  &__field {
-  }
-
-  &__value {
+    padding: 12px 24px;
+    border-radius: 32px;
+    background-color: #780096;
+    color: #fff;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
   }
 }

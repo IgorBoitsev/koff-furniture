@@ -1,26 +1,85 @@
 .footer {
+  padding: 32px 0px 16px;
+  background-color: #1c1c1c;
+
+  @media (min-width: 580px) {
+    padding: 32px 0px 40px;
+  }
+
+  @media (min-width: 820px) {
+    padding: 40px 0px 40px;
+  }
+
+  @media (min-width: 1120px) {
+    padding: 40px 0px 40px;
+  }
 
   &__container {
+    @media (min-width: 580px) {
+      display: grid;
+      grid-template-areas:
+      'logo contacts'
+      'developers developers'
+      'copyright copyright';
+      grid-template-columns: 1fr 122px;
+    }
   }
 
   &__link-logo {
-  }
 
+    @media (min-width: 580px) {
+      grid-area: logo;
+    }
+
+    @media (min-width: 820px) {
+      margin-bottom: 32px;
+    }
+  }
+  
   &__logo {
+    width: 230px;
+    margin-bottom: 24px;
+    
+    @media (min-width: 820px) {
+      width: 331px;
+    }
   }
 
   &__contacts {
+    margin-bottom: 24px;
+    color: #F1E9E4;
+    
+    @media (min-width: 580px) {
+      grid-area: contacts;
+    }
   }
 
   &__developer-list {
+    margin-bottom: 24px;
+    
+    @media (min-width: 580px) {
+      grid-area: developers;
+    }
+
+    @media (min-width: 820px) {
+      margin-bottom: 32px;
+    }
   }
 
   &__developer-item {
+    font-weight: 400;
+    color: #F1E9E4;
+
+    &:first-child {
+      margin-bottom: 8px;
+    }
   }
 
-  &__developer-link {
-  }
+  // &__developer-link {
+  // }
 
   &__copyright {
+    color: #F1E9E4;
+    grid-area: copyright;
   }
 }

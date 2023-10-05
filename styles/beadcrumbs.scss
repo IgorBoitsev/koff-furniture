@@ -1,17 +1,31 @@
 .breadcrumbs {
+  padding-top: 20px;
 
-  &__container {
+  @media (min-width: 820px) {
+    padding-top: 24px;
   }
 
-  &__list {
-  }
+  // &__container {
+  // }
+
+  // &__list {
+  // }
 
   &__item {
+    display: inline-block;
   }
 
   &__link {
+    margin-right: 3px;
+    color: #969EAE;
+    
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   &__separator {
+    margin-right: 3px;
+    color: #969EAE;
   }
 }

@@ -1,14 +1,19 @@
 .contacts {
 
   &__phone {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
   }
 
   &__list {
+    display: flex;
+    gap: 8px;
   }
 
-  &__item {
-  }
+  // &__item {
+  // }
 
-  &__link {
-  }
+  // &__link {
+  // }
 }

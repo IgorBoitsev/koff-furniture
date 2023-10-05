@@ -1,11 +1,21 @@
 .table {
+  width: 100%;
 
-  &__row {
-  }
+  // &__row {
+    // border-bottom: 1px solid #EEEFF2;
+  // }
 
   &__field {
+    color: #969EAE;
+    font-weight: 400;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #EEEFF2;
   }
 
   &__value {
+    font-weight: 400;
+    text-align: right;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #EEEFF2;
   }
 }
