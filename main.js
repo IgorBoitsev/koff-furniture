@@ -6,6 +6,10 @@
 // const { default: Navigo } = require('navigo');
 
 import Navigo from 'navigo';
+import { Header } from './modules/header/Header';
+import { Main } from './modules/main/Main';
+import { Footer } from './modules/footer/Footer';
+import { Order } from './modules/Order/Order';
 
 const productSlider = () => {
   Promise.all([
@@ -38,13 +42,22 @@ const productSlider = () => {
 
 
 const init = () => {
+
+  new Header().mount();
+
+  const mainSection = new Main();
+  mainSection.mount();
+
+  new Footer().mount();
+
   productSlider();
 
   const router = new Navigo('/', {linksSelector: 'a[href^="/"]'});
 
   router
     .on('/', () => {
-
+      mainSection.clear();
+      // mainSection.mount();
     })
     .on('/category', () => {
       
@@ -59,7 +72,11 @@ const init = () => {
       
     })
     .on('/cart', () => {
-      
+      mainSection.clear();
+      // mainSection.unmount();
+      // new Main().mount();
+      console.log('mainSection.element: ', mainSection.element);
+      new Order().mount(mainSection.element);
     })
     .on('/order', () => {
       
@@ -67,7 +84,6 @@ const init = () => {
     .notFound(() => {
       console.log(404);
     });
-
 
   router.resolve();
 };
