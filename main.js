@@ -13,7 +13,7 @@ import { Order } from './modules/Order/Order';
 import { ProductList } from './modules/ProductList/ProductList';
 import { ApiService } from './services/ApiService';
 import { Catalog } from './modules/Catalog/Catalog';
-import { LocalStorageService } from './services/LocalStorageService';
+import { FavoriteService, LocalStorageService } from './services/LocalStorageService';
 
 const productSlider = () => {
   Promise.all([
@@ -95,8 +95,11 @@ const init = () => {
       }
     })
     .on('/favorite', async () => {
-      const products = await api.getProducts();
-      new ProductList().mount(new Main().element, products, 'Избранное', 'goods__title'); 
+      const favoriteList = new FavoriteService().get();
+      const query = favoriteList.join(',');
+      const products = await api.getProducts(`list=${query}`);
+
+      new ProductList().mount(new Main().element, products.data, 'Избранное', 'goods__title'); 
       router.updatePageLinks();
     },
     {
