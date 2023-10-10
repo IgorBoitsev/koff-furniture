@@ -1,5 +1,4 @@
-//// import { addContainer } from "../addContainer"; 
-//// import logoImgSVG from '/public/img/logo.svg';
+import { Logo } from "../../features/Logo/Logo";
 import { BasicWrapper } from "../BasicWrapper";
 
 export class Header extends BasicWrapper {
@@ -9,37 +8,18 @@ export class Header extends BasicWrapper {
   constructor() {
     super('header', 'header');
 
-    //// Проверка наличия уже существующего образца
+    // Проверка наличия уже существующего образца
     if (!Header.instance) {
       Header.instance = this;
-      //// this.element = document.createElement('header');
-      //// this.element.classList.add('header');
-      //// this.containerElement = addContainer(this.element, 'header__container');
       this.containerElement = this.addContainer(['container', 'header__container']);
       
-      //// Свойство для определения вставки элемента на странице
+      // Свойство для определения вставки элемента на странице
       this.isMounted = false;
     }
     
     return Header.instance;
   };
 
-  //// getLogo(linkClassName, imageLinkClassName) {
-  ////   const logoLink = document.createElement('a');
-  ////   logoLink.classList.add(linkClassName);
-  ////   logoLink.href = '/';
-
-  ////   const imgLogo = document.createElement('img');
-  ////   imgLogo.src = logoImgSVG;
-  ////   imgLogo.alt = 'Логотип Мебельного онлайн-магагзина Koff';
-  ////   imgLogo.classList.add(imageLinkClassName);
-
-  ////   logoLink.append(imgLogo);
-
-  ////   return logoLink;
-  //// };
-
-  //// getSearchForm(formClassName, inputClassName, buttonClassName) {
   getSearchForm(parrentElement, formClassName, inputClassName, buttonClassName) {
     const searchFrom = document.createElement('form');
     searchFrom.classList.add(formClassName);
@@ -63,11 +43,8 @@ export class Header extends BasicWrapper {
 
     searchFrom.append(input, button);
     parrentElement.append(searchFrom);
-
-    //// return searchFrom;
   };
 
-  //// getNavigation(navClassName, navLinkClassName) {
   getNavigation(parrentElement, navClassName, navLinkClassName) {
     const navigation = document.createElement('nav');
     navigation.classList.add(navClassName);
@@ -112,7 +89,6 @@ export class Header extends BasicWrapper {
 
     this.countElement = spanCount;
 
-    // return navigation;
   };
 
   changeCount(count) {
@@ -120,28 +96,11 @@ export class Header extends BasicWrapper {
   };
 
   mount() {
-    //// if (this.isMounted) {
-    ////   return;
-    //// }
-
-    //// const logo = this.getLogo('header__link-logo', 'header__logo', 'Логотип Мебельного онлайн-магагзина Koff');
-    this.getLogo('header__link-logo', 'header__logo', 'Логотип Мебельного онлайн-магагзина Koff');
-    //// const searchForm = this.getSearchForm('header__search', 'header__input', 'header__btn');
+    new Logo().create(this.containerElement, 'header__link-logo', 'header__logo', 'Логотип Мебельного онлайн-магагзина Koff');
     this.getSearchForm(this.containerElement, 'header__search', 'header__input', 'header__btn');
-    //// const navigation = this.getNavigation('header__control', 'header__link');
     this.getNavigation(this.containerElement, 'header__control', 'header__link');
 
-    //// this.containerElement.append(logo, searchForm, navigation);
-
-    //// element из класса BasicWrapper
-    //// document.body.append(this.element);
-    //// this.isMounted = true;
     super.mount();
   };
-
-  //// unmount() {
-  ////   this.element.remove();
-  ////   this.isMounted = false;
-  //// };
 
 }

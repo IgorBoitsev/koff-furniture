@@ -66,9 +66,6 @@
     }
   }
 
-  // &__main-list {
-  // }
-
   &__slide {
 
     & img {
@@ -100,12 +97,6 @@
       display: block !important;
     }
   }
-
-  // &__thumbnails-list {
-  // }
-
-  // &__thumbnails-slide {
-  // }
 
   &__thumbnails-image {
     border-radius: 16px;
@@ -144,9 +135,6 @@
     margin-bottom: 12px;
   }
 
-  // &__characteristics-table {
-  // }
-
   &__btns {
     display: flex;
     align-items: center;
@@ -161,7 +149,4 @@
     color: #fff;
     width: 100%;
   }
-
-  // &__like {
-  // }
 }

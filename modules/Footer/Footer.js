@@ -1,5 +1,4 @@
-//// import { addContainer } from "../addContainer"; 
-//// import logoImgSVG from '/public/img/logo.svg';
+import { Logo } from '../../features/Logo/Logo';
 import { BasicWrapper } from '../BasicWrapper';
 
 export class Footer extends BasicWrapper {
@@ -9,35 +8,17 @@ export class Footer extends BasicWrapper {
   constructor() {
     super('footer', 'footer');
 
-    //// Проверка наличия уже существующего образца
+    // Проверка наличия уже существующего образца
     if (!Footer.instance) {
       Footer.instance = this;
-      //// this.element = document.createElement('footer');
-      //// this.element.classList.add('footer');
-      //// this.containerElement = addContainer(this.element, 'footer__container');
       this.containerElement = this.addContainer(['container', 'footer__container']);
 
-      //// Свойство для определения вставки элемента на странице
+      // Свойство для определения вставки элемента на странице
       this.isMounted = false;
     }
     
     return Footer.instance;
   };
-
-  //// getLogo(linkClassName, imageLinkClassName) {
-  ////   const logoLink = document.createElement('a');
-  ////   logoLink.classList.add(linkClassName);
-  ////   logoLink.href = '/';
-
-  ////   const imgLogo = document.createElement('img');
-  ////   imgLogo.src = logoImgSVG;
-  ////   imgLogo.alt = 'Логотип Мебельного онлайн-магагзина Koff';
-  ////   imgLogo.classList.add(imageLinkClassName);
-
-  ////   logoLink.append(imgLogo);
-
-  ////   return logoLink;
-  //// };
 
   getFooterHTML() {
     return `
@@ -94,25 +75,11 @@ export class Footer extends BasicWrapper {
   };
 
   mount() {
-    //// if (this.isMounted) {
-    ////   return;
-    //// }
-
-    //// const logo = this.getLogo('footer__link-logo', 'footer__logo');
-    this.getLogo('footer__link-logo', 'footer__logo');
-    
-    //// this.containerElement.append(logo);
+    new Logo().create(this.containerElement, 'footer__link-logo', 'footer__logo', 'Логотип Мебельного онлайн-магагзина Koff');
     
     this.containerElement.insertAdjacentHTML('beforeend', this.getFooterHTML());
     
-    //// document.body.append(this.element);
-    //// this.isMounted = true;
     super.mount();
   };
-
-  //// unmount() {
-   // // this.element.remove();
-   // // this.isMounted = false;
-  //// }
 
 }
