@@ -19,7 +19,7 @@ export class Main extends BasicWrapper {
   };
 
   mount(insertElement) {
-    this.element.textContent = 'Здесь будет контент.';
+    this.mountElement.textContent = '';
     super.mount(insertElement);
   };
 

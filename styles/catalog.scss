@@ -37,10 +37,6 @@
     }
   }
 
-  // &__item {
-
-  // }
-
   &__link {
     display: block;
     border-radius: 32px;
@@ -49,6 +45,7 @@
     color: #969eae;
     outline: none;
     border: 1px solid transparent;
+    white-space: nowrap;
 
     &:hover,
     &:focus-visible {

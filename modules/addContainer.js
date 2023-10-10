@@ -1,14 +1,14 @@
-export const addContainer = (parrent, className) => {
+// export const addContainer = (parrent, className) => {
 
-  const container = document.createElement('div');
-  container.classList.add('container');
+//   const container = document.createElement('div');
+//   container.classList.add('container');
 
-  if (className) {
-    container.classList.add(className);
-  }
+//   if (className) {
+//     container.classList.add(className);
+//   }
 
-  parrent.append(container);
+//   parrent.append(container);
 
-  return container;
+//   return container;
 
-}
+// }

@@ -1,3 +1,4 @@
+import Navigo from 'navigo';
 import logoImgSVG from '/public/img/logo.svg';
 
 export class BasicWrapper {
@@ -41,20 +42,19 @@ export class BasicWrapper {
     this.mountElement.append(logoLink);
   };
 
-  mount(insertElement = '') {
+  mount(parrentElement = '') {
     if (this.isMounted) {
       return;
     }
 
-    if (insertElement) {
-      insertElement.append(this.element);
+    if (parrentElement) {
+      parrentElement.append(this.element);
     } else {
       document.body.append(this.element);
     }
-
+    
     this.isMounted = true;
 
-    console.log(this.mountElement);
     return this.mountElement;
   };
 
@@ -64,9 +64,16 @@ export class BasicWrapper {
   };
 
   clear() {
-    console.log('clear');
     this.element.textContent = '';
-    this.isMounted = false;
+    // this.isMounted = false;
+  };
+
+  setNotFoundpage() {
+    this.element.innerHTML = `
+    <div class="not-found">
+      <h2 class="not-found__title">Страница не найдена</h2>
+      <p class="not-found__text">Через 5 секунд вы бедете перенаправлены на <a class="not-found__link" href="/">главную страницу</a></p>
+    </div>`;
   }
 
 }

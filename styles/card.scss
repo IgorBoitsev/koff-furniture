@@ -1,23 +1,14 @@
 .card {
   position: relative;
-  
-  // @media (min-width: 580px) {
-  //   display: grid;
-  //   grid-template-areas:
-  //   'img img'
-  //   'title price'
-  //   'btn btn';
-  // }
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   &__link {
     display: block;
 
     &-image {
       margin-bottom: 12px;
-      
-      // @media (min-width: 580px) {
-      //   grid-area: img;
-      // }
       
       @media (min-width: 580px) {
         margin-bottom: 16px;
@@ -29,9 +20,19 @@
     width: 100%;
     object-fit: cover;
     border-radius: 16px;
+    aspect-ratio: 7/6;
+
+    @media (min-width: 580px) {
+      aspect-ratio: 23/20;
+    }
+
+    @media (min-width: 820px) {
+      aspect-ratio: 151/125;
+    }
   }
 
   &__info {
+    flex-grow: 1;
 
     @media (min-width: 580px) {
       display: flex;
@@ -46,15 +47,10 @@
     font-weight: 400;
     
     @media (min-width: 580px) {
-      // grid-area: title;
       padding-top: 3px;
       font-size: 16px;
       margin-bottom: 0;
     }
-    
-    // @media (min-width: 820px) {
-    //   font-size: 16px;
-    // }
   }
 
   &__price {
@@ -63,7 +59,6 @@
         
     @media (min-width: 580px) {
       font-size: 20px;
-      // grid-area: price;
       margin-bottom: 0;
     }
   }
@@ -74,10 +69,6 @@
     border-radius: 32px;
     border: 1px solid #780096;
     width: 100%;
-    
-    // @media (min-width: 580px) {
-    //   grid-area: btn;
-    // }
   }
 
   &__favorite {

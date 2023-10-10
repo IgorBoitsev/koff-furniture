@@ -10,12 +10,10 @@ export class Order extends BasicWrapper {
     // Проверка наличия уже существующего образца
     if (!Order.instance) {
       Order.instance = this;
-      console.log('Order.instance: ', Order.instance);
       this.containerElement = this.addContainer(['container', 'order__container']);
       
       // Свойство для определения вставки элемента на странице
       this.isMounted = false;
-      console.log('this.isMounted: ', this.isMounted);
     }
     
     return Order.instance;

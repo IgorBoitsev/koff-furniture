@@ -1,0 +1,14 @@
+.not-found {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px 50px 0px;
+
+  &__title {
+    font-size: 32px;
+    margin-bottom: 50px;
+  }
+  &__link {
+    font-weight: 700;
+  }
+}
