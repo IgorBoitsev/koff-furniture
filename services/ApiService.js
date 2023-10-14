@@ -46,15 +46,19 @@ export class ApiService {
     }
   };
 
-  async getProducts(q, page = 1, limit = 12, list, category) {
-    if (q) {
-      return await this.getData(`api/products?${q}`, {});
-    } else {
-      return await this.getData('api/products', {});
-    };
+  // async getProducts(q, page = 1, limit = 12, list, category) {
+  async getProducts(params) {
+    // if (q) {
+    //   return await this.getData(`api/products?${q}`, {});
+    // } else {
+      return await this.getData('api/products', params);
+    // };
   };
 
   async getProductsCategories() {
+    // const data = await this.getData('api/productCategories');
+    // console.log('data: ', data);
+    // return data;
     return await this.getData('api/productCategories');
   };
 

@@ -14,6 +14,7 @@ import { ProductList } from './modules/ProductList/ProductList';
 import { ApiService } from './services/ApiService';
 import { Catalog } from './modules/Catalog/Catalog';
 import { FavoriteService, LocalStorageService } from './services/LocalStorageService';
+import { Pagination } from './features/Pagination/Pagination';
 
 const productSlider = () => {
   Promise.all([
@@ -76,16 +77,15 @@ const init = () => {
         new ProductList().unmount();
         done();
       },
-      already() {
-        console.log('already on main page');
+      already(match) {
+        match.route.handler(match);
       }
     })
-    .on('/category', async ({ params: {slug} }) => {
-      const products = await api.getProducts();
-
-      const filterProducts = products.filter(pr => pr.category === slug);
+    .on('/category', async ({ params: {slug, page} }) => {
+      const { data: products, pagination } = await api.getProducts({ category: slug, page: page });
       
-      new ProductList().mount(new Main().element, filterProducts, slug, 'goods__title'); 
+      new ProductList().mount(new Main().element, products, slug, 'goods__title');
+      new Pagination().mount(new ProductList().containerElement).update(pagination);
       router.updatePageLinks();
     },
     {
@@ -96,16 +96,20 @@ const init = () => {
     })
     .on('/favorite', async () => {
       const favoriteList = new FavoriteService().get();
-      const query = favoriteList.join(',');
-      const products = await api.getProducts(`list=${query}`);
+      // const query = favoriteList.join(',');
+      const { data: products, pagination } = await api.getProducts({ list: favoriteList.join(',') });
 
-      new ProductList().mount(new Main().element, products.data, 'Избранное', 'goods__title'); 
+      new ProductList().mount(new Main().element, products, 'Избранное', 'goods__title', 'Вы ничего еще не добавили в избранное:('); 
+      new Pagination().mount(new ProductList().containerElement).update(pagination);
       router.updatePageLinks();
     },
     {
       leave(done) {
         new ProductList().unmount();
         done();
+      },
+      already(match) {
+        match.route.handler(match);
       }
     })
     .on('/search', () => {
@@ -115,7 +119,7 @@ const init = () => {
       
     })
     .on('/cart', () => {
-      new LocalStorageService('LS').setLSItem('sdfgsdhwr');
+      
     })
     .on('/order', () => {
       // mainSection.clear();
@@ -138,7 +142,6 @@ const init = () => {
     },
     {
       leave(done) {
-        console.log('leave notFound page');
         new Main().clear();
         done();
       }
