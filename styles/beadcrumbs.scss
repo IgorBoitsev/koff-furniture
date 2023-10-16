@@ -9,6 +9,10 @@
     display: inline-block;
   }
 
+  &__item:last-child &__separator {
+    display: none;
+  }
+
   &__link {
     margin-right: 3px;
     color: #969EAE;

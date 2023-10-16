@@ -149,4 +149,27 @@
     color: #fff;
     width: 100%;
   }
+
+  &__like {
+    svg {
+      fill: #ffffff;
+    }
+    
+    &:hover,
+    &_active {
+      color: #780096;
+      
+      svg {
+        fill: #780096;
+      }
+    }
+
+    &:active {
+      color: #780096;
+      
+      svg {
+        fill: #780096;
+      }
+    }
+  }
 }

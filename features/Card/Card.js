@@ -9,7 +9,7 @@ export class Card {
     this.image = image;
     this.title = title;
     this.price = price;
-    this.cartButton = new CartButton('В корзину', 'card__btn');
+    this.cartButton = new CartButton('card__btn', 'В корзину');
     this.likeButton = new LikeButton('card__favorite');
   }
 

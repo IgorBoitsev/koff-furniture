@@ -1,8 +1,8 @@
 export class CartButton {
 
-  constructor(btnText, btnClassName) {
-    this.btnText = btnText;
+  constructor(btnClassName, btnText) {
     this.btnClassName = btnClassName;
+    this.btnText = btnText;
   }
 
   create(id) {

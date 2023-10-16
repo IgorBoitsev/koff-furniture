@@ -1,5 +1,3 @@
-import Navigo from 'navigo';
-
 export class BasicWrapper {
 
   mountElement;
@@ -49,7 +47,7 @@ export class BasicWrapper {
 
   clear() {
     this.element.textContent = '';
-    // this.isMounted = false;
+    this.isMounted = false;
   };
 
   setNotFoundpage() {
@@ -58,6 +56,6 @@ export class BasicWrapper {
       <h2 class="not-found__title">Страница не найдена</h2>
       <p class="not-found__text">Через 5 секунд вы бедете перенаправлены на <a class="not-found__link" href="/">главную страницу</a></p>
     </div>`;
-  }
+  };
 
 }

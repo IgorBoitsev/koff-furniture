@@ -1,3 +1,4 @@
+import { ApiService } from "../../services/ApiService";
 import { BasicWrapper } from "../BasicWrapper";
 
 export class Catalog extends BasicWrapper {
@@ -38,13 +39,29 @@ export class Catalog extends BasicWrapper {
     listElem.append(...listItems);
 
     this.containerElement.append(listElem);
-  }
-
-  mount(parrentElement, data) {
-
-    this.renderListElem(data);
-    parrentElement.prepend(this.element);
-    // super.mount(parrentElement);
   };
+
+  async getCategoryData() {
+    this.catalogData = await new ApiService().getProductsCategories();
+  };
+
+  async mount(parrentElement) {
+    if (this.isMounted) {
+      return;
+    }
+
+    if (!this.catalogData) {
+      await this.getCategoryData();
+      this.renderListElem(this.catalogData);
+    }
+    
+    parrentElement.prepend(this.element);
+
+    this.isMounted = true;
+  };
+
+  unmount() {
+    super.unmount();
+  }
 
 }
