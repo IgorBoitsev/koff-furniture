@@ -6,12 +6,11 @@ export class Main extends BasicWrapper {
 
   constructor() {
     super('main', 'main')
-    //// Проверка наличия уже существующего образца
+    // Проверка наличия уже существующего образца
     if (!Main.instance) {
       Main.instance = this;
 
-      //// this.element = document.createElement('main');
-      //// Свойство для определения вставки элемента на странице
+      // Свойство для определения вставки элемента на странице
       this.isMounted = false;
     }
     
@@ -23,9 +22,8 @@ export class Main extends BasicWrapper {
     super.mount(insertElement);
   };
 
-  //// unmount() {
-   // // this.element.remove();
-   // // this.isMounted = false;
-  //// }
+  unmount() {
+    super.unmount();
+  }
 
 }

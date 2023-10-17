@@ -1,4 +1,5 @@
 import { Logo } from "../../features/Logo/Logo";
+import { router } from "../../main";
 import { BasicWrapper } from "../BasicWrapper";
 
 export class Header extends BasicWrapper {
@@ -40,6 +41,12 @@ export class Header extends BasicWrapper {
         <path d="M14.6667 14.6666L13.3334 13.3333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     `;
+
+    searchFrom.addEventListener('submit', event => {
+      event.preventDefault();
+
+      router.navigate(`/search?q=${input.value}`);
+    })
 
     searchFrom.append(input, button);
     parrentElement.append(searchFrom);

@@ -1,3 +1,5 @@
+import { ApiService } from "../../services/ApiService";
+
 export class CartButton {
 
   constructor(btnClassName, btnText) {
@@ -12,7 +14,7 @@ export class CartButton {
     button.textContent = this.btnText;
 
     button.addEventListener('click', () => {
-      console.log('Добавить товар в корзину');
+      new ApiService().postProductToCart(id);
     });
 
     return button;
